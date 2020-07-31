@@ -18,7 +18,7 @@ public class OrganizeController {
 
     @RequestMapping("/get_all")
     public JsonNode getAll(){
-        return oraganizeService.getAllOrganize();
+        return oraganizeService.test();
     }
 
 }
