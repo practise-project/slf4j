@@ -1,5 +1,6 @@
 package com.example.test.service;
 
+import com.example.test.common.annotation.AroundMonitor;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
@@ -25,11 +26,11 @@ public class OraganizeService {
      * 用于测试（返回json格式）
      * @return
      */
-    public JsonNode test() {
+    @AroundMonitor("测试方法")
+    public JsonNode test(String name) {
         regex();
         var root = objectMapper .createObjectNode();
-        root.put("code", "0");
-        root.put("msg", "success");
+        root.put("result", "success");
         LOGGER.warn("产生一条警告日志用于测试");
         LOGGER.error("产生一条错误日志用于测试");
         return root;
