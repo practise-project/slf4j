@@ -1,6 +1,7 @@
 package com.example.test.service;
 
 import com.example.test.common.annotation.AroundMonitor;
+import com.example.test.common.annotation.BeforeMonitor;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
@@ -26,8 +27,8 @@ public class OraganizeService {
      * 用于测试（返回json格式）
      * @return
      */
-    @AroundMonitor("测试方法")
-    public JsonNode test(String name) {
+    @AroundMonitor("测试环绕方法")
+    public JsonNode around(String name) {
         regex();
         var root = objectMapper .createObjectNode();
         root.put("result", "success");
@@ -36,6 +37,12 @@ public class OraganizeService {
         return root;
     }
 
+    @BeforeMonitor("访问了before方法")
+    public JsonNode before() {
+        var root = objectMapper .createObjectNode();
+        root.put("result", "success");
+        return root;
+    }
     /**
      * 正则匹配(获取字符中应用程序名称的值)
      */

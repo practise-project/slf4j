@@ -6,7 +6,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * 监听方法（用于测试AOP环绕方法)
+ * 监听方法（用于测试AOP 的@After方法)
  * 使用方法：在service中,需要监听的方法中加入该注解。value值为模块名称
  * @Target  声明这是一个方法
  * @Retention 用来修饰注解，是注解的注解，称为元注解

@@ -16,9 +16,15 @@ public class OrganizeController {
     @Autowired
     private OraganizeService oraganizeService;
 
-    @RequestMapping("/get_all")
-    public JsonNode getAll(){
-        return oraganizeService.test("小明");
+    @RequestMapping("/around")
+    public JsonNode around(){
+
+        return oraganizeService.around("小明");
     }
 
+    @RequestMapping("/before")
+    public JsonNode before(){
+
+        return oraganizeService.before();
+    }
 }
